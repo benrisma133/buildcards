@@ -4,9 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BuildCards.Controls.Cards"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             x:Name="Root">
+
+    <Border x:Name="CardBorder"
+            Background="{StaticResource CardBackgroundBrush}"
+            BorderBrush="{StaticResource BorderDefaultBrush}"
+            BorderThickness="1"
+            CornerRadius="12"
+            Padding="20"
+            HorizontalAlignment="Stretch"
+            Margin="0"
+            Cursor="Hand">
+
+        <Border.Effect>
+            <DropShadowEffect Color="{StaticResource ShadowColor}"
+                              BlurRadius="15"
+                              ShadowDepth="0"
+                              Opacity="0.3"/>
+        </Border.Effect>
+        
+    </Border>
+
 </UserControl>
