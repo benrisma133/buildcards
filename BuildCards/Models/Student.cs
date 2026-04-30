@@ -23,9 +23,5 @@ namespace BuildCards.Models
         public string Status { get; set; } = null!;
 
         public string? PhoneNumber { get; set; }
-
-        public string FullName => $"{FirstName} {LastName}";
-        public string Initials => $"{FirstName[0]}{LastName[0]}";
-        public int Age => DateTime.Now.Year - DateOfBirth.Year;
     }
 }
