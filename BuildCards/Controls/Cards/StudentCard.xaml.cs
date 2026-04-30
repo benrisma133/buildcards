@@ -1,23 +1,34 @@
 ﻿using BuildCards.Models;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 
 namespace BuildCards.Controls.Cards
 {
-    /// <summary>
-    /// Interaction logic for StudentCard.xaml
-    /// </summary>
     public partial class StudentCard : UserControl
     {
+        private Student? _currentStudent;
+        private bool _isDark = true;
+
         public StudentCard()
         {
             InitializeComponent();
+            MainWindow.ThemeChanged += OnThemeChanged;
+        }
+
+        private void OnThemeChanged(bool isDark)
+        {
+            _isDark = isDark;
+            if (_currentStudent != null)
+                SetStatus(_currentStudent.Status);
+            UpdateShadow();
         }
 
         public void LoadStudent(Student student)
         {
-            AvatarText.Text = student.FirstName.Substring(0, 1).ToUpper();
+            _currentStudent = student;
 
+            AvatarText.Text = student.FirstName.Substring(0, 1).ToUpper();
             FullNameText.Text = $"{student.FirstName} {student.LastName}";
             EmailText.Text = student.Email;
 
@@ -30,7 +41,23 @@ namespace BuildCards.Controls.Cards
             AgeText.Text = $"{age} years";
 
             SetStatus(student.Status);
+            UpdateShadow();
+        }
 
+        private void UpdateShadow()
+        {
+            if (_isDark)
+            {
+                CardShadow.Color = Color.FromRgb(59, 130, 246); // accent blue glow
+                CardShadow.BlurRadius = 20;
+                CardShadow.Opacity = 0.15;
+            }
+            else
+            {
+                CardShadow.Color = Color.FromRgb(0, 0, 0); // black shadow
+                CardShadow.BlurRadius = 15;
+                CardShadow.Opacity = 0.15;
+            }
         }
 
         private void SetStatus(string status)
@@ -40,28 +67,20 @@ namespace BuildCards.Controls.Cards
             switch (status?.ToLower())
             {
                 case "active":
-                    StatusBadge.Background = new SolidColorBrush(
-                        (Color)ColorConverter.ConvertFromString("#064E3B"));
-                    StatusText.Foreground = new SolidColorBrush(
-                        (Color)ColorConverter.ConvertFromString("#10B981"));
+                    StatusBadge.Background = (Brush)App.Current.Resources["SuccessLightBrush"];
+                    StatusText.Foreground = (Brush)App.Current.Resources["SuccessBrush"];
                     break;
                 case "suspended":
-                    StatusBadge.Background = new SolidColorBrush(
-                        (Color)ColorConverter.ConvertFromString("#78350F"));
-                    StatusText.Foreground = new SolidColorBrush(
-                        (Color)ColorConverter.ConvertFromString("#F59E0B"));
+                    StatusBadge.Background = (Brush)App.Current.Resources["WarningLightBrush"];
+                    StatusText.Foreground = (Brush)App.Current.Resources["WarningBrush"];
                     break;
                 case "graduated":
-                    StatusBadge.Background = new SolidColorBrush(
-                        (Color)ColorConverter.ConvertFromString("#1E3A5F"));
-                    StatusText.Foreground = new SolidColorBrush(
-                        (Color)ColorConverter.ConvertFromString("#3B82F6"));
+                    StatusBadge.Background = (Brush)App.Current.Resources["InfoLightBrush"];
+                    StatusText.Foreground = (Brush)App.Current.Resources["InfoBrush"];
                     break;
                 default:
-                    StatusBadge.Background = new SolidColorBrush(
-                        (Color)ColorConverter.ConvertFromString("#1F2937"));
-                    StatusText.Foreground = new SolidColorBrush(
-                        (Color)ColorConverter.ConvertFromString("#94A3B8"));
+                    StatusBadge.Background = (Brush)App.Current.Resources["CardHoverBackgroundBrush"];
+                    StatusText.Foreground = (Brush)App.Current.Resources["TextSecondaryBrush"];
                     break;
             }
         }
