@@ -5,11 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="BuildCards" Height="600" Width="1000"
-        Background="{StaticResource AppBackgroundBrush}">
+        Background="{DynamicResource  AppBackgroundBrush}">
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="20">
-        <WrapPanel x:Name="CardsPanel"
-                   Orientation="Horizontal"/>
-    </ScrollViewer>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" Content="Toggle Theme" 
+                Click="ToggleTheme_Click"
+                Style="{DynamicResource  PrimaryButton}"/>
+
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
+            <UniformGrid x:Name="CardsPanel"
+                     Columns="3"
+                     VerticalAlignment="Top"/>
+        </ScrollViewer>
+
+    </Grid>
 
 </Window>
