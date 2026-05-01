@@ -42,14 +42,14 @@ public partial class MainWindow : Window
 
     private void OnWindowSizeChanged(object sender, SizeChangedEventArgs e)
     {
-        if (e.NewSize.Width < 600)
-            CardsPanel.Columns = 1;
-        else if (e.NewSize.Width < 900)
-            CardsPanel.Columns = 2;
-        else if (e.NewSize.Width < 1200)
-            CardsPanel.Columns = 3;
-        else
-            CardsPanel.Columns = 4;
+        //if (e.NewSize.Width < 600)
+        //    CardsPanel.Columns = 1;
+        //else if (e.NewSize.Width < 900)
+        //    CardsPanel.Columns = 2;
+        //else if (e.NewSize.Width < 1200)
+        //    CardsPanel.Columns = 3;
+        //else
+        //    CardsPanel.Columns = 4;
     }
 
     private async void LoadSampleStudents()
@@ -90,7 +90,7 @@ public partial class MainWindow : Window
             card.Opacity = 0;
             card.RenderTransform = new TranslateTransform(0, -30);
 
-            CardsPanel.Children.Add(card);
+            //CardsPanel.Children.Add(card);
 
             // Animate in
             AnimateCardIn(card);
@@ -137,6 +137,36 @@ public partial class MainWindow : Window
     }
 
     private void HamburgerBtn_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void BtnDashboard_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void BtnStudents_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void BtnCourses_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void BtnInstructors_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void BtnEnrollments_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void BtnSettings_Click(object sender, RoutedEventArgs e)
     {
 
     }
