@@ -136,4 +136,8 @@ public partial class MainWindow : Window
         ThemeChanged?.Invoke(_isDark);
     }
 
+    private void HamburgerBtn_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
 }
