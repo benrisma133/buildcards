@@ -8,21 +8,122 @@
         Background="{DynamicResource  AppBackgroundBrush}">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        
+        <!-- Side Bar -->
+        <Border x:Name="SideBar"
+                Width="260"
+                HorizontalAlignment="Left"
+                Background="{DynamicResource SidebarBackgroundBrush}"
+                ClipToBounds="True">
 
-        <Button Grid.Row="0" Content="Toggle Theme" 
-                Click="ToggleTheme_Click"
-                Style="{DynamicResource  PrimaryButton}"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Header Row: Logo + Humburger -->
+                <Border Grid.Row="0"
+                        BorderBrush="{DynamicResource BorderDefaultBrush}"
+                        BorderThickness="0,0,0,1">
 
+                    <Grid Margin="12 ,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <!-- Logo + Title -->
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center"
+                                    Grid.Column="0">
+                            <!-- Logo -->
+                            <Border x:Name="LogoBox"
+                                    Background="{DynamicResource AccentBrush}"
+                                    CornerRadius="8"
+                                    Width="36" Height="36"
+                                    Margin="0,0,10,0">
 
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
-            <UniformGrid x:Name="CardsPanel"
-                     Columns="3"
-                     VerticalAlignment="Top"/>
-        </ScrollViewer>
+                                <TextBlock Text="TC"
+                                           FontSize="14"
+                                           FontWeight="Bold"
+                                           Foreground="White"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+
+                            </Border>
+                            
+                            <!-- Title -->
+                            <StackPanel x:Name="LogoTextStack"
+                                        VerticalAlignment="Center">
+
+                                <TextBlock Text="TrainingCenter"
+                                           FontSize="14"
+                                           FontWeight="Bold"
+                                           Foreground="{DynamicResource TextPrimaryBrush}"/>
+
+                                <TextBlock Text="Managemet System"
+                                           FontSize="10"
+                                           Foreground="{DynamicResource TextMutedBrush}"/>
+
+                            </StackPanel>
+                            
+                        </StackPanel>
+
+                        <!-- Hamburger Button -->
+                        <Button x:Name="HamburgerBtn"
+                                Grid.Column="1"
+                                Width="34" Height="34"
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Cursor="Hand"
+                                Click="HamburgerBtn_Click">
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="Bd"
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="8">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Bd" Property="Background"
+                                                    Value="{DynamicResource MenuHoverBrush}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                            <Viewbox Width="18" Height="18">
+                                <Canvas Width="24" Height="24">
+                                    <Path x:Name="HamburgerPath"
+                                          Stroke="{StaticResource TextSecondaryBrush}"
+                                          StrokeThickness="2"
+                                          StrokeStartLineCap="Round"
+                                          StrokeEndLineCap="Round"
+                                          Data="M4 6H20 M4 12H20 M4 18H20"/>
+                                </Canvas>
+                            </Viewbox>
+
+                        </Button>
+
+                    </Grid>
+                    
+                </Border>
+                
+                
+                
+            </Grid>
+            
+        </Border>
+        
+        <!-- Main Content -->
+        <Grid x:Name="MainContent" Margin="260,0,0,0">
+            
+        </Grid>
 
     </Grid>
 
