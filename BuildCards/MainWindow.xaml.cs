@@ -242,13 +242,28 @@ public partial class MainWindow : Window
         ((TranslateTransform)card.RenderTransform).BeginAnimation(TranslateTransform.YProperty, slideIn);
     }
 
-    private bool _isDark = true;
+    private bool _isDark;
 
-    private void ToggleTheme_Click(object sender, RoutedEventArgs e)
+    private void BtnSettings_Click(object sender, RoutedEventArgs e)
     {
-        _isDark = !_isDark;
+        SetActiveMenu(BtnSettings);
+        PageTitle.Text = "Settings";
 
-        // Save preference
+        var settingsPage = new SettingsPage();
+
+        // 4. Subscribe to the event
+        settingsPage.ThemeToggled += OnThemeToggled;
+
+        // 5. Sync toggle with current theme state
+        settingsPage.SetThemeState(_isDark);
+
+        PageContent.Content = settingsPage;
+    }
+
+    // 6. This runs when SettingsPage fires ThemeToggled
+    private void OnThemeToggled(bool isDark)
+    {
+        _isDark = isDark;
         Properties.Settings.Default.IsDarkTheme = _isDark;
         Properties.Settings.Default.Save();
 
@@ -292,8 +307,4 @@ public partial class MainWindow : Window
 
     }
 
-    private void BtnSettings_Click(object sender, RoutedEventArgs e)
-    {
-
-    }
 }
