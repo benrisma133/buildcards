@@ -98,9 +98,65 @@
                 </StackPanel>
 
             </Grid>
-            
-            
-            
+
+            <!-- ROW 2: Divider -->
+            <Border Grid.Row="1"
+                    Height="1"
+                    Background="{DynamicResource BorderDefaultBrush}"
+                    VerticalAlignment="Center"/>
+
+            <!-- ROW 3: HireDate + Salary + Experience  -->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- HireDate -->
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="HireDate"
+                               FontSize="11"
+                               Foreground="{DynamicResource TextMutedBrush}"/>
+                    <TextBlock x:Name="HireDateText"
+                               FontSize="13"
+                               Foreground="{DynamicResource TextSecondaryBrush}"
+                               Margin="0,3,0,0"
+                               TextTrimming="CharacterEllipsis"/>
+                </StackPanel>
+                
+                <!-- Salary -->
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Salary"
+                               FontSize="11"
+                               Foreground="{DynamicResource TextMutedBrush}"/>
+                    <TextBlock x:Name="SalaryText"
+                               FontSize="13"
+                               Foreground="{DynamicResource TextSecondaryBrush}"
+                               Margin="0,3,0,0"
+                               TextTrimming="CharacterEllipsis"/>
+                </StackPanel>
+
+                <!-- Experience -->
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="Experience"
+                               FontSize="11"
+                               Foreground="{DynamicResource TextMutedBrush}"/>
+                    <TextBlock x:Name="ExperienceText"
+                               FontSize="13"
+                               Foreground="{DynamicResource TextSecondaryBrush}"
+                               Margin="0,3,0,0"
+                               TextTrimming="CharacterEllipsis"/>
+                </StackPanel>
+
+            </Grid>
+
+            <!-- ROW 4: Divider -->
+            <Border Grid.Row="3"
+                    Height="1"
+                    Background="{DynamicResource BorderDefaultBrush}"
+                    VerticalAlignment="Center"/>
+
         </Grid>
 
     </Border>
