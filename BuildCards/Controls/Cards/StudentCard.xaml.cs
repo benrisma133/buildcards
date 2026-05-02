@@ -13,6 +13,15 @@ namespace BuildCards.Controls.Cards
         public StudentCard()
         {
             InitializeComponent();
+            MainWindow.ThemeChanged += OnThemeChanged;
+        }
+
+        private void OnThemeChanged(bool isDark)
+        {
+            _isDark = isDark;
+            if (_currentStudent != null)
+                SetStatus(_currentStudent.Status);
+            UpdateShadow();
         }
 
         public void LoadStudent(Student student)
