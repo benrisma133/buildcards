@@ -124,7 +124,8 @@
                         <!-- Dashboard -->
                         <Button x:Name="BtnDashboard"
                                 Style="{DynamicResource MenuButton}"
-                                Click="BtnDashboard_Click">
+                                Click="BtnDashboard_Click"
+                                HorizontalAlignment="Stretch">
 
                             <Grid>
                                 <Grid.ColumnDefinitions>

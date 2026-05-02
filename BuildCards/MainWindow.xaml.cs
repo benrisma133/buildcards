@@ -150,9 +150,14 @@ public partial class MainWindow : Window
             }
 
             // Center button content when collapsed
-            btn.HorizontalContentAlignment = visible
-                ? HorizontalAlignment.Left
-                : HorizontalAlignment.Center;
+            if (_isSidebarOpen)
+            {
+                btn.HorizontalAlignment = HorizontalAlignment.Stretch;
+            }
+            else
+            {
+                btn.HorizontalAlignment = HorizontalAlignment.Center;
+            }
         }
     }
 
