@@ -299,7 +299,9 @@ public partial class MainWindow : Window
 
     private void BtnCourses_Click(object sender, RoutedEventArgs e)
     {
-
+        SetActiveMenu(BtnCourses);
+        PageTitle.Text = "Courses";
+        PageContent.Content = new CoursesPage();
     }
 
     private void BtnInstructors_Click(object sender, RoutedEventArgs e)
