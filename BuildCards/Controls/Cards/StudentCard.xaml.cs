@@ -26,10 +26,7 @@ namespace BuildCards.Controls.Cards
             PhoneText.Text = string.IsNullOrEmpty(student.PhoneNumber)
                 ? "N/A" : student.PhoneNumber;
 
-            var today = DateOnly.FromDateTime(DateTime.Today);
-            int age = today.Year - student.DateOfBirth.Year;
-            if (student.DateOfBirth > today.AddYears(-age)) age--;
-            AgeText.Text = $"{age} years";
+            AgeText.Text = $"{GetAge(student.DateOfBirth)} years";
 
             SetStatus(student.Status);
             UpdateShadow();
@@ -74,6 +71,15 @@ namespace BuildCards.Controls.Cards
                     StatusText.Foreground = (Brush)App.Current.Resources["TextSecondaryBrush"];
                     break;
             }
+        }
+
+        private int GetAge(DateOnly birthDate)
+        {
+            var today = DateOnly.FromDateTime(DateTime.Today);
+            int age = today.Year - birthDate.Year;
+            if (birthDate > today.AddYears(-age)) age--;
+
+            return age;
         }
     }
 }
