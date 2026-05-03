@@ -85,7 +85,7 @@
                 </Border>
 
                 <!-- Name + Course -->
-                <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                <StackPanel Grid.Column="1" HorizontalAlignment="Left">
                     
                     <!-- Name -->
                     <TextBlock x:Name="StudentNameText"
@@ -122,7 +122,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- COLUMN 0: Progress -->
-                <StackPanel Grid.Column="0">
+                <StackPanel Grid.Column="0" Margin="0,0,12,0">
                     <Grid Margin="0,0,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -138,7 +138,7 @@
                     </Grid>
 
                     <!-- Progress Bar -->
-                    <Grid Margin="0,3,0,0">
+                    <Grid Margin="0,8,0,0">
                         <!-- Background track -->
                         <Border Height="8"
                                 Background="{DynamicResource BorderDefaultBrush}"
@@ -154,7 +154,7 @@
                 </StackPanel>
 
                 <!-- COLUMN 1: Grade -->
-                <StackPanel Grid.Column="1">
+                <StackPanel Grid.Column="1" Margin="0,0,8,0">
                     <TextBlock Text="Grade"
                                FontSize="11"
                                Foreground="{DynamicResource TextMutedBrush}"/>

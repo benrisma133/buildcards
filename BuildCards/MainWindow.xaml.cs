@@ -313,7 +313,9 @@ public partial class MainWindow : Window
 
     private void BtnEnrollments_Click(object sender, RoutedEventArgs e)
     {
-
+        SetActiveMenu(BtnEnrollments);
+        PageTitle.Text = "Enrollments";
+        PageContent.Content = new EnrollmentPage();
     }
 
 }
