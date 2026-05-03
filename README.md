@@ -19,28 +19,32 @@ A modern **WPF desktop application** built with **C# and XAML** as a hands-on pr
 ---
 
 ## 🏗️ Project Structure
+
+```
 BuildCards/
-├── Controls/Cards/
-│   ├── StudentCard       — Avatar, name, email, phone, age, status
-│   ├── CourseCard        — Icon, title, code, price, duration, level, status
-│   ├── InstructorCard    — Avatar, name, email, hire date, salary, experience
-│   ├── EnrollmentCard    — Student, course, progress bar, grade, date, status
-│   └── FlipCard          — Experimental flip animation card
+├── Controls/
+│   └── Cards/
+│       ├── StudentCard.xaml       — Avatar, name, email, phone, age, status
+│       ├── CourseCard.xaml        — Icon, title, code, price, duration, level, status
+│       ├── InstructorCard.xaml    — Avatar, name, email, hire date, salary, experience
+│       ├── EnrollmentCard.xaml    — Student, course, progress bar, grade, date, status
+│       └── FlipCard.xaml          — Experimental flip animation card
 ├── Models/
 │   ├── Student.cs
 │   ├── Course.cs
 │   ├── Instructor.cs
 │   └── Enrollment.cs
 ├── Pages/
-│   ├── StudentPage
-│   ├── CoursesPage
-│   ├── InstructorPage
-│   ├── EnrollmentPage
-│   └── SettingsPage      — Theme toggle
+│   ├── StudentPage.xaml
+│   ├── CoursesPage.xaml
+│   ├── InstructorPage.xaml
+│   ├── EnrollmentPage.xaml
+│   └── SettingsPage.xaml          — Theme toggle
 └── Helpers/
-├── Colors.xaml        — Dark theme colors
-├── ColorsLight.xaml   — Light theme colors
-└── Styles.xaml        — Buttons, scrollbar, card styles
+    ├── Colors.xaml                 — Dark theme colors
+    ├── ColorsLight.xaml            — Light theme colors
+    └── Styles.xaml                 — Buttons, scrollbar, card styles
+```
 
 ---
 
